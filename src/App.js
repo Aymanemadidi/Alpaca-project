@@ -1,9 +1,10 @@
+import ImgArea from "./components/ImgArea";
+import Hair from "./components/Hair";
+import Background from "./components/Background";
+import "./styles.css";
+
 function App() {
-  return (
-    <div>
-      <h1>Hello from App</h1>
-    </div>
-  );
+  return <Background />;
 }
 
 export default App;

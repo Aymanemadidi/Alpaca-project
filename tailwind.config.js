@@ -6,6 +6,7 @@ module.exports = {
       navbar: "#283149",
       redish: "red",
       white: "white",
+      gray: "#E1E1E1",
     },
     extend: {},
   },
