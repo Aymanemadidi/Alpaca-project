@@ -1,3 +1,7 @@
+body {
+  background-color: beige;
+}
+
 .bbb {
   height: 300px;
 }
@@ -6,9 +10,15 @@
   height: 300px;
 }
 
+.width {
+  width: 25%;
+  box-sizing: border-box;
+}
+
 .bg {
-  margin-top: 25px;
+  margin-top: 50px;
   height: 400px;
+  bottom: 150px;
 }
 
 .wrapper {
@@ -31,7 +41,7 @@
 }
 
 .eye {
-  bottom: 70px;
+  bottom: 60px;
   left: 150px;
   height: 200px;
 }
@@ -48,8 +58,40 @@
   height: 200px;
 }
 
+.leg {
+  bottom: 0;
+  left: 110px;
+  height: 330px;
+  width: 300px;
+}
+
+.ear {
+  bottom: 0px;
+  left: 100px;
+  height: 300px;
+  z-index: -5;
+}
+
+.acc {
+  bottom: 0px;
+  left: 100px;
+  height: 300px;
+}
+
 /*     buttons-containers      */
 
 .buttons-containers {
   margin-top: 200px;
+}
+
+/*------------------*/
+
+.buttons {
+  margin-top: 400px;
+}
+
+@media (max-width: 1023px) {
+  .buttons {
+    margin-top: 180px;
+  }
 }

@@ -1,10 +1,8 @@
-import ImgArea from "./components/ImgArea";
-import Hair from "./components/Hair";
-import Background from "./components/Background";
+import Main from "./components/Main";
 import "./styles.css";
 
 function App() {
-  return <Background />;
+  return <Main />;
 }
 
 export default App;
