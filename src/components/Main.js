@@ -70,7 +70,7 @@ import nose from "../../alpaca/nose.png";
 
 /*-----------------------------------------------------*/
 
-function Background() {
+function Main() {
   const [bgSrc, setBgSrc] = useState(blue50);
   const [hairSrc, setHairSrc] = useState(defaultHair);
   const [neckSrc, setNeckSrc] = useState(neckDefault);
@@ -271,4 +271,4 @@ function Background() {
   );
 }
 
-export default Background;
+export default Main;
