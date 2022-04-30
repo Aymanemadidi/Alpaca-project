@@ -1,7 +1,7 @@
 {
   "name": "class",
   "version": "1.0.0",
-  "main": "boom.js",
+  "main": "dist/boom.js",
   "scripts": {
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html",
