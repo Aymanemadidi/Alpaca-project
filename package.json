@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html",
-    "format": "prettier --write \"src/**/*.{js,jsx}\""
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "",
