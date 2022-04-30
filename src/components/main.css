@@ -92,6 +92,9 @@ body {
 
 @media (max-width: 1023px) {
   .buttons {
-    margin-top: 180px;
+    margin-top: 220px;
+  }
+  .buttons-containers {
+    margin-top: 390px;
   }
 }

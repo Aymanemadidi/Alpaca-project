@@ -1,4 +1,7 @@
-import { useState, useReducer } from "react";
+import { useState, useRef, useCallback } from "react";
+import { toPng } from "html-to-image";
+import download from "downloadjs";
+
 import "./main.css";
 
 /*------------------EYES----------------------*/
@@ -71,14 +74,14 @@ import nose from "../../alpaca/nose.png";
 /*-----------------------------------------------------*/
 
 function Main() {
-  const [bgSrc, setBgSrc] = useState(blue50);
+  const [bgSrc, setBgSrc] = useState(yellow70);
   const [hairSrc, setHairSrc] = useState(defaultHair);
-  const [neckSrc, setNeckSrc] = useState(neckDefault);
-  const [mouthSrc, setMouthSrc] = useState(defaultMouth);
-  const [eyeSrc, setEyeSrc] = useState(defaultEye);
-  const [legSrc, setLegSrc] = useState(defaultLeg);
-  const [earSrc, setEarSrc] = useState(defaultEar);
-  const [accSrc, setAccSrc] = useState(headphone);
+  const [neckSrc, setNeckSrc] = useState(bendForward);
+  const [mouthSrc, setMouthSrc] = useState(eating);
+  const [eyeSrc, setEyeSrc] = useState(starEye);
+  const [legSrc, setLegSrc] = useState(tiltForward);
+  const [earSrc, setEarSrc] = useState(earForward);
+  const [accSrc, setAccSrc] = useState(glasses);
 
   const eyeArr = [
     "Eyes",
@@ -193,24 +196,82 @@ function Main() {
 
   const [shown, setShown] = useState(null);
 
+  const ref = useRef(null);
+
+  // const onButtonClick = useCallback(() => {
+  //   if (ref.current === null) {
+  //     return;
+  //   }
+
+  const random = () => {
+    let random4 = Math.floor(Math.random() * 4);
+    let random3 = Math.floor(Math.random() * 3);
+    let random6 = Math.floor(Math.random() * 6);
+
+    setBgSrc(bgArr[1][random6].src);
+    setHairSrc(hairArr[1][random4].src);
+    setNeckSrc(neckArr[1][random4].src);
+    setMouthSrc(mouthArr[1][random4].src);
+    setEyeSrc(eyeArr[1][random6].src);
+    setLegSrc(legArr[1][random6].src);
+    setEarSrc(earArr[1][random3].src);
+    setAccSrc(accArr[1][random4].src);
+  };
+
+  const downloadPng = () => {
+    toPng(document.getElementById("alpaca-image")).then(function (dataUrl) {
+      download(dataUrl, "alpaca.png");
+    });
+  };
+
+  //   toPng(ref.current, { cacheBust: true })
+  //     .then((dataUrl) => {
+  //       const link = document.createElement("a");
+  //       link.download = "my-image-name.png";
+  //       link.href = dataUrl;
+  //       link.click();
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [ref]);
+
   return (
     <>
       <div className=" bbb flex flex-col items-center lg:flex-row lg:justify-evenly">
         <div className="bg-container">
-          <img className="bg" src={bgSrc} alt="" />
-          <div className="wrapper">
-            <img className="hairS z-2 absolute" src={hairSrc} alt="" />
-            <img className="neck z-2 absolute" src={neckSrc} alt="" />
-            <img className="eye z-2 absolute" src={eyeSrc} alt="" />
-            <img className="nose z-2 absolute" src={nose} alt="" />
-            <img className="mouth z-2 absolute" src={mouthSrc} alt="" />
-            <img className="leg z-2 absolute" src={legSrc} alt="" />
-            <img className="ear absolute" src={earSrc} alt="" />
-            <img className="acc absolute" src={accSrc} alt="" />
+          <div className="-translate-y-10" id="alpaca-image">
+            <img className="bg " src={bgSrc} alt="" />
+            <div className="wrapper">
+              <img className=" hairS z-2 absolute" src={hairSrc} alt="" />
+              <img className=" neck z-2 absolute" src={neckSrc} alt="" />
+              <img className=" eye z-2 absolute" src={eyeSrc} alt="" />
+              <img className="  nose z-2 absolute" src={nose} alt="" />
+              <img className="  mouth z-2 absolute" src={mouthSrc} alt="" />
+              <img className="  leg z-2 absolute" src={legSrc} alt="" />
+              <img className=" ear absolute" src={earSrc} alt="" />
+              <img className=" acc absolute" src={accSrc} alt="" />
+            </div>
+          </div>
+          <div className=" -translate-y-5 text-center mt-2">
+            <button
+              className="bg-navbar text-white px-4 py-2 rounded-md"
+              onClick={() => downloadPng()}
+            >
+              download
+            </button>
+            <button
+              className="ml-4 bg-navbar text-white px-4 py-2 rounded-md"
+              onClick={() => random()}
+            >
+              random
+            </button>
           </div>
         </div>
         <div className="buttons flex flex-wrap flex-col gap-1">
-          <h3 className="customize">Customize your Alpaca</h3>
+          <h3 className="customize text-lg text-navbar font-semibold">
+            Customize your Alpaca
+          </h3>
           <div className="flex flex-row gap-1">
             {items1.map((item) => (
               <button
@@ -247,10 +308,10 @@ function Main() {
         </div>
       </div>
       <div className="buttons-containers">
-        <h3 className="text-center" hidden={shown === null}>
+        <p className="translate-y-4 text-center" hidden={shown === null}>
           Choose one of these to change the Alpaca
-        </h3>
-        <div className="flex flex-row justify-center pt-7 gap-2">
+        </p>
+        <div className=" w-15 flex flex-wrap wra justify-center pt-7 gap-2">
           {finalArr.map((obj) => {
             return obj[1].map((objElement, i) => {
               return (
