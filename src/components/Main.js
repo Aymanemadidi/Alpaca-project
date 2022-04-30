@@ -308,7 +308,10 @@ function Main() {
         </div>
       </div>
       <div className="buttons-containers">
-        <p className="translate-y-4 text-center" hidden={shown === null}>
+        <p
+          className="translate-y-4 text-center text-lg text-navbar font-semibold"
+          hidden={shown === null}
+        >
           Choose one of these to change the Alpaca
         </p>
         <div className=" w-15 flex flex-wrap wra justify-center pt-7 gap-2">
