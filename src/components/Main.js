@@ -198,11 +198,6 @@ function Main() {
 
   const ref = useRef(null);
 
-  // const onButtonClick = useCallback(() => {
-  //   if (ref.current === null) {
-  //     return;
-  //   }
-
   const random = () => {
     let random4 = Math.floor(Math.random() * 4);
     let random3 = Math.floor(Math.random() * 3);
@@ -223,18 +218,6 @@ function Main() {
       download(dataUrl, "alpaca.png");
     });
   };
-
-  //   toPng(ref.current, { cacheBust: true })
-  //     .then((dataUrl) => {
-  //       const link = document.createElement("a");
-  //       link.download = "my-image-name.png";
-  //       link.href = dataUrl;
-  //       link.click();
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [ref]);
 
   return (
     <>
