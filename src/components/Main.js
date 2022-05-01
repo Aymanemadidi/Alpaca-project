@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState } from "react";
 import { toPng } from "html-to-image";
 import download from "downloadjs";
 
@@ -195,8 +195,6 @@ function Main() {
   const items3 = ["Accessories", "Background"];
 
   const [shown, setShown] = useState(null);
-
-  const ref = useRef(null);
 
   const random = () => {
     let random4 = Math.floor(Math.random() * 4);
