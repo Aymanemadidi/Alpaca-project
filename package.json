@@ -1,12 +1,12 @@
 {
   "name": "class",
   "version": "1.0.0",
-  "main": "dist/boom.js",
+  "source": "src/index.html",
   "scripts": {
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "dev": "parcel src/index.html",
+    "dev": "parcel",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "build": "parcel build src/index.js"
+    "build": "parcel build"
   },
   "keywords": [],
   "author": "",
