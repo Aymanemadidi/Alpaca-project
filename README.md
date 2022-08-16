@@ -1,5 +1,7 @@
 # Alpaca-project
 
+Live Demo: https://whimsical-platypus-2b8a1a.netlify.app/
+
 Introduction
 At DevProjects, we love alpacas! It's our mascot, and we'd love for you to have your own alpaca profile photo. With that said, this project is not just about alpacas. Allowing users to generate and download avatars are common in many interactive websites. In this project, you'll learn how to create an image generator website that allows users to generate, combine, and download images.
 
